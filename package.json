@@ -21,7 +21,7 @@
   "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
   "license": "MIT",
   "dependencies": {
-    "sprintf-js": "0.0.7"
+    "sprintf-js": "^1.0.2"
   },
   "devDependencies": {
     "chai": "^1.9.1",
