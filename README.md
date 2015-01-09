@@ -12,12 +12,14 @@ $ npm install hexo-i18n --save
 
 ## Usage
 
+### Example
+
 ``` js
 var i18n = new require('hexo-i18n')({
   languages: ['zh-TW', 'en']
 });
 
-i18n.load('en', {
+i18n.set('en', {
   ok: 'OK',
   name: 'My name is %1$s %2$s.',
   index: {
@@ -30,7 +32,7 @@ i18n.load('en', {
   }
 });
 
-i18n.load('zh-TW', {
+i18n.set('zh-TW', {
   name: '我的名字是 %2$s %1$s。',
   index: {
     title: '首頁'
@@ -51,6 +53,40 @@ __('name', '大呆', '王') // 我的名字是王大呆
 _p('video', 0) // 沒有影片
 _p('video', 1) // 一部影片
 _p('video', 10) // 10 部影片
+```
+
+### new i18n([options])
+
+Creates a new i18n instance.
+
+Option | Description | Default
+--- | --- | ---
+`languages` | Default languages. It can be an array or a string | `default`
+
+### i18n.get([lang]) → Object
+
+Returns a set of localization data. `lang` can be an array or a string, or the default language defined in constructor if not set. This method will build the data in order of languages.
+
+### i18n.set(lang, data)
+
+Loads localization data.
+
+### i18n.remove(lang)
+
+Unloads localization data.
+
+### i18n.__() → Function(key, arg...)
+
+Returns a function for localization.
+
+### i18n._p() → Function(key, count, ...)
+
+This method is similar to `i18n.__`, but it returns pluralized string based on the second parameter. For example:
+
+``` js
+_p('video', 0) = __('video.zero', 0)
+_p('video', 1) = __('video.one', 1)
+_p('video', 10) = __('video.other', 10)
 ```
 
 ## License

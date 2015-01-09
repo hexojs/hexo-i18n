@@ -8,7 +8,7 @@ describe('i18n', function(){
   });
 
   // Load fixtures
-  i18n.load('en', {
+  i18n.set('en', {
     ok: 'OK',
     add: 'Add',
     name: 'My name is %1$s %2$s.',
@@ -22,7 +22,7 @@ describe('i18n', function(){
     }
   });
 
-  i18n.load('zh-TW', {
+  i18n.set('zh-TW', {
     add: '新增',
     name: '我的名字是%2$s%1$s。',
     index: {
@@ -52,10 +52,10 @@ describe('i18n', function(){
     i18n.languages.should.eql(['zh-TW', 'en']);
   });
 
-  it('load()', function(){
+  it('set()', function(){
     var i18n = new ctor();
 
-    i18n.load('en', {
+    i18n.set('en', {
       yes: 'Yes',
       no: 'No',
       index: {
@@ -74,8 +74,24 @@ describe('i18n', function(){
     });
   });
 
-  it('_compile() - default languages', function(){
-    var result = i18n._compile();
+  it('set() - lang must be a string', function(){
+    try {
+      i18n.set();
+    } catch (err){
+      err.should.have.property('message', 'lang must be a string!');
+    }
+  });
+
+  it('set() - data is required', function(){
+    try {
+      i18n.set('en');
+    } catch (err){
+      err.should.have.property('message', 'data is required!');
+    }
+  });
+
+  it('get() - default languages', function(){
+    var result = i18n.get();
 
     result.should.eql({
       add: '新增',
@@ -88,8 +104,8 @@ describe('i18n', function(){
     });
   });
 
-  it('_compile() - custom languages', function(){
-    var result = i18n._compile('en');
+  it('get() - custom languages', function(){
+    var result = i18n.get('en');
 
     result.should.eql({
       add: 'Add',
@@ -100,6 +116,23 @@ describe('i18n', function(){
       name: 'My name is %1$s %2$s.',
       ok: 'OK'
     });
+  });
+
+  it('remove()', function(){
+    var i18n = new ctor();
+
+    i18n.set('en', {});
+    i18n.remove('en');
+
+    should.not.exist(i18n.data.en);
+  });
+
+  it('remove() - lang must be a string', function(){
+    try {
+      i18n.remove();
+    } catch (err){
+      err.should.have.property('message', 'lang must be a string!');
+    }
   });
 
   it('__() - default languages', function(){
