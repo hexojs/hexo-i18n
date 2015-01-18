@@ -75,6 +75,10 @@ Loads localization data.
 
 Unloads localization data.
 
+### i18n.list()
+
+Lists loaded languages.
+
 ### i18n.__() → Function(key, arg...)
 
 Returns a function for localization.

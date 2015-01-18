@@ -135,6 +135,10 @@ describe('i18n', function(){
     }
   });
 
+  it('list()', function(){
+    i18n.list().should.have.members(['en', 'zh-TW']);
+  });
+
   it('__() - default languages', function(){
     var __ = i18n.__();
 
