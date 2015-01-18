@@ -1,6 +1,6 @@
 {
   "name": "hexo-i18n",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "i18n module for Hexo.",
   "main": "lib/i18n",
   "scripts": {
@@ -16,7 +16,8 @@
   "homepage": "http://hexo.io/",
   "keywords": [
     "hexo",
-    "i18n"
+    "i18n",
+    "localization"
   ],
   "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
   "license": "MIT",
