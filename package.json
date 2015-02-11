@@ -1,6 +1,6 @@
 {
   "name": "hexo-i18n",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "i18n module for Hexo.",
   "main": "lib/i18n",
   "scripts": {
@@ -12,7 +12,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "repository": "hexojs/i18n",
+  "repository": "hexojs/hexo-i18n",
   "homepage": "http://hexo.io/",
   "keywords": [
     "hexo",
