@@ -1,11 +1,11 @@
 'use strict';
 
-var should = require('chai').should();
+const should = require('chai').should();
 
 describe('i18n', function() {
-  var Ctor = require('../lib/i18n');
+  const Ctor = require('../lib/i18n');
 
-  var i18n = new Ctor({
+  const i18n = new Ctor({
     languages: ['zh-TW', 'en']
   });
 
@@ -38,7 +38,7 @@ describe('i18n', function() {
   });
 
   it('construCtor', function() {
-    var i18n = new Ctor();
+    let i18n = new Ctor();
     i18n.languages.should.eql(['default']);
 
     i18n = new Ctor({
@@ -55,7 +55,7 @@ describe('i18n', function() {
   });
 
   it('set()', function() {
-    var i18n = new Ctor();
+    const i18n = new Ctor();
 
     i18n.set('en', {
       yes: 'Yes',
@@ -93,7 +93,7 @@ describe('i18n', function() {
   });
 
   it('get() - default languages', function() {
-    var result = i18n.get();
+    const result = i18n.get();
 
     result.should.eql({
       add: '新增',
@@ -107,7 +107,7 @@ describe('i18n', function() {
   });
 
   it('get() - custom languages', function() {
-    var result = i18n.get('en');
+    const result = i18n.get('en');
 
     result.should.eql({
       add: 'Add',
@@ -121,7 +121,7 @@ describe('i18n', function() {
   });
 
   it('remove()', function() {
-    var i18n = new Ctor();
+    const i18n = new Ctor();
 
     i18n.set('en', {});
     i18n.remove('en');
@@ -142,7 +142,7 @@ describe('i18n', function() {
   });
 
   it('__() - default languages', function() {
-    var __ = i18n.__();
+    const __ = i18n.__();
 
     __().should.eql('');
     __('add').should.eql('新增');
@@ -153,7 +153,7 @@ describe('i18n', function() {
   });
 
   it('__() - custom languages', function() {
-    var __ = i18n.__('en');
+    const __ = i18n.__('en');
 
     __('add').should.eql('Add');
     __('ok').should.eql('OK');
@@ -162,7 +162,7 @@ describe('i18n', function() {
   });
 
   it('_p() - default languages', function() {
-    var _p = i18n._p();
+    const _p = i18n._p();
 
     _p().should.eql('');
     _p('ok').should.eql('OK');
@@ -173,7 +173,7 @@ describe('i18n', function() {
   });
 
   it('_p() - custom languages', function() {
-    var _p = i18n._p('en');
+    const _p = i18n._p('en');
 
     _p('ok').should.eql('OK');
     _p('index.video', 0).should.eql('No videos');
