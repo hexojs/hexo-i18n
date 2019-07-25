@@ -2,7 +2,7 @@
   "name": "hexo-i18n",
   "version": "0.2.1",
   "description": "i18n module for Hexo.",
-  "main": "lib/i18n",
+  "main": "lib/i18n.js",
   "scripts": {
     "eslint": "eslint .",
     "test": "mocha test/index.js",
@@ -11,6 +11,9 @@
   "directories": {
     "lib": "./lib"
   },
+  "files": [
+    "lib/"
+  ],
   "engines": {
     "node": ">=8.6.0"
   },
