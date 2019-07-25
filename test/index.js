@@ -2,7 +2,7 @@
 
 const should = require('chai').should();
 
-describe('i18n', function() {
+describe('i18n', () => {
   const Ctor = require('../lib/i18n');
 
   const i18n = new Ctor({
@@ -37,7 +37,7 @@ describe('i18n', function() {
     }
   });
 
-  it('construCtor', function() {
+  it('construCtor', () => {
     let i18n = new Ctor();
     i18n.languages.should.eql(['default']);
 
@@ -54,7 +54,7 @@ describe('i18n', function() {
     i18n.languages.should.eql(['zh-TW', 'en']);
   });
 
-  it('set()', function() {
+  it('set()', () => {
     const i18n = new Ctor();
 
     i18n.set('en', {
@@ -76,7 +76,7 @@ describe('i18n', function() {
     });
   });
 
-  it('set() - lang must be a string', function() {
+  it('set() - lang must be a string', () => {
     try {
       i18n.set();
     } catch (err) {
@@ -84,7 +84,7 @@ describe('i18n', function() {
     }
   });
 
-  it('set() - data is required', function() {
+  it('set() - data is required', () => {
     try {
       i18n.set('en');
     } catch (err) {
@@ -92,7 +92,7 @@ describe('i18n', function() {
     }
   });
 
-  it('get() - default languages', function() {
+  it('get() - default languages', () => {
     const result = i18n.get();
 
     result.should.eql({
@@ -106,7 +106,7 @@ describe('i18n', function() {
     });
   });
 
-  it('get() - custom languages', function() {
+  it('get() - custom languages', () => {
     const result = i18n.get('en');
 
     result.should.eql({
@@ -120,7 +120,7 @@ describe('i18n', function() {
     });
   });
 
-  it('remove()', function() {
+  it('remove()', () => {
     const i18n = new Ctor();
 
     i18n.set('en', {});
@@ -129,7 +129,7 @@ describe('i18n', function() {
     should.not.exist(i18n.data.en);
   });
 
-  it('remove() - lang must be a string', function() {
+  it('remove() - lang must be a string', () => {
     try {
       i18n.remove();
     } catch (err) {
@@ -137,11 +137,11 @@ describe('i18n', function() {
     }
   });
 
-  it('list()', function() {
+  it('list()', () => {
     i18n.list().should.have.members(['en', 'zh-TW']);
   });
 
-  it('__() - default languages', function() {
+  it('__() - default languages', () => {
     const __ = i18n.__();
 
     __().should.eql('');
@@ -152,7 +152,7 @@ describe('i18n', function() {
     __('Hello world').should.eql('Hello world');
   });
 
-  it('__() - custom languages', function() {
+  it('__() - custom languages', () => {
     const __ = i18n.__('en');
 
     __('add').should.eql('Add');
@@ -161,7 +161,7 @@ describe('i18n', function() {
     __('name', 'John', 'Doe').should.eql('My name is John Doe.');
   });
 
-  it('_p() - default languages', function() {
+  it('_p() - default languages', () => {
     const _p = i18n._p();
 
     _p().should.eql('');
@@ -172,7 +172,7 @@ describe('i18n', function() {
     _p('Hello world').should.eql('Hello world');
   });
 
-  it('_p() - custom languages', function() {
+  it('_p() - custom languages', () => {
     const _p = i18n._p('en');
 
     _p('ok').should.eql('OK');
