@@ -1,6 +1,6 @@
 {
   "name": "hexo-i18n",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "i18n module for Hexo.",
   "main": "lib/i18n.js",
   "scripts": {
