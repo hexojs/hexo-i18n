@@ -1,6 +1,6 @@
 # hexo-i18n
 
-[![Build Status](https://travis-ci.org/hexojs/hexo-i18n.svg?branch=master)](https://travis-ci.org/hexojs/hexo-i18n)
+[![Build Status](https://github.com/hexojs/hexo-i18n/workflows/Tester/badge.svg)](https://github.com/hexojs/hexo-i18n/actions?query=workflow%3ATester)
 [![NPM version](https://badge.fury.io/js/hexo-i18n.svg)](https://www.npmjs.com/package/hexo-i18n)
 [![Coverage Status](https://img.shields.io/coveralls/hexojs/hexo-i18n.svg)](https://coveralls.io/r/hexojs/hexo-i18n?branch=master)
 
@@ -99,4 +99,4 @@ _p('video', 10) = __('video.other', 10)
 
 MIT
 
-[Hexo]: http://hexo.io/
+[Hexo]: https://hexo.io/

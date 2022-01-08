@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint .",
     "test": "mocha test/index.js",
-    "test-cov": "nyc npm run test"
+    "test-cov": "nyc --reporter=lcovonly npm run test"
   },
   "directories": {
     "lib": "./lib"
@@ -15,25 +15,25 @@
     "lib/"
   ],
   "engines": {
-    "node": ">=8.6.0"
+    "node": ">=12.13.0"
   },
   "repository": "hexojs/hexo-i18n",
-  "homepage": "http://hexo.io/",
+  "homepage": "https://hexo.io/",
   "keywords": [
     "hexo",
     "i18n",
     "localization"
   ],
-  "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
+  "author": "Tommy Chen <tommy351@gmail.com> (https://zespia.tw)",
   "license": "MIT",
   "dependencies": {
-    "sprintf-js": "^1.0.3"
+    "sprintf-js": "^1.1.2"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^8.0.1",
-    "eslint-config-hexo": "^4.0.0",
-    "mocha": "^8.0.1",
-    "nyc": "^15.0.0"
+    "chai": "^4.3.4",
+    "eslint": "^8.6.0",
+    "eslint-config-hexo": "^5.0.0",
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0"
   }
 }
