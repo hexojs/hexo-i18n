@@ -1,9 +1,14 @@
-'use strict';
+import { vsprintf } from 'sprintf-js';
 
-const { vsprintf } = require('sprintf-js');
+interface Options {
+  languages?: string[];
+}
 
 class i18n {
-  constructor(options = {}) {
+  data: object;
+  languages: string[];
+
+  constructor(options: Options = {}) {
     this.data = {};
     this.languages = options.languages || ['default'];
 
@@ -110,4 +115,4 @@ function flattenObject(data, obj = {}, parent = '') {
   return obj;
 }
 
-module.exports = i18n;
+export = i18n;
