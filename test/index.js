@@ -3,7 +3,7 @@
 const should = require('chai').should();
 
 describe('i18n', () => {
-  const Ctor = require('../lib/i18n');
+  const Ctor = require('../dist/i18n');
 
   const i18n = new Ctor({
     languages: ['zh-TW', 'en']

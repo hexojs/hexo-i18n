@@ -1,9 +1,14 @@
-'use strict';
+import { vsprintf } from 'sprintf-js';
 
-const { vsprintf } = require('sprintf-js');
+interface Options {
+  languages?: string[];
+}
 
 class i18n {
-  constructor(options = {}) {
+  data: object;
+  languages: string[];
+
+  constructor(options: Options = {}) {
     this.data = {};
     this.languages = options.languages || ['default'];
 
@@ -12,7 +17,7 @@ class i18n {
     }
   }
 
-  get(languages) {
+  get(languages?: string[] | string) {
     const { data } = this;
     const result = {};
 
@@ -39,7 +44,7 @@ class i18n {
     return result;
   }
 
-  set(lang, data) {
+  set(lang: string, data: object) {
     if (typeof lang !== 'string') throw new TypeError('lang must be a string!');
     if (typeof data !== 'object') throw new TypeError('data is required!');
 
@@ -48,7 +53,7 @@ class i18n {
     return this;
   }
 
-  remove(lang) {
+  remove(lang: string) {
     if (typeof lang !== 'string') throw new TypeError('lang must be a string!');
 
     delete this.data[lang];
@@ -60,10 +65,10 @@ class i18n {
     return Object.keys(this.data);
   }
 
-  __(lang) {
+  __(lang?: string[]) {
     const data = this.get(lang);
 
-    return (key, ...args) => {
+    return (key: string, ...args) => {
       if (!key) return '';
 
       const str = data[key] || key;
@@ -72,10 +77,10 @@ class i18n {
     };
   }
 
-  _p(lang) {
+  _p(lang?: string[]) {
     const data = this.get(lang);
 
-    return (key, ...args) => {
+    return (key: string, ...args) => {
       if (!key) return '';
 
       const number = args.length ? +args[0] : 0;
@@ -110,4 +115,4 @@ function flattenObject(data, obj = {}, parent = '') {
   return obj;
 }
 
-module.exports = i18n;
+export = i18n;
