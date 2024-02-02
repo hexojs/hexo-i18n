@@ -1,8 +1,8 @@
 # hexo-i18n
 
-[![Build Status](https://github.com/hexojs/hexo-i18n/workflows/Tester/badge.svg)](https://github.com/hexojs/hexo-i18n/actions?query=workflow%3ATester)
+[![CI](https://github.com/hexojs/hexo-i18n/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/hexojs/hexo-i18n/actions/workflows/ci.yml)
 [![NPM version](https://badge.fury.io/js/hexo-i18n.svg)](https://www.npmjs.com/package/hexo-i18n)
-[![Coverage Status](https://img.shields.io/coveralls/hexojs/hexo-i18n.svg)](https://coveralls.io/r/hexojs/hexo-i18n?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/hexojs/hexo-i18n/badge.svg)](https://coveralls.io/github/hexojs/hexo-i18n)
 
 i18n module for [Hexo].
 
