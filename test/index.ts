@@ -1,10 +1,8 @@
-'use strict';
-
-const should = require('chai').should();
+import chai from 'chai';
+import Ctor from '../lib/i18n';
+const should = chai.should();
 
 describe('i18n', () => {
-  const Ctor = require('../dist/i18n');
-
   const i18n = new Ctor({
     languages: ['zh-TW', 'en']
   });
@@ -78,6 +76,7 @@ describe('i18n', () => {
 
   it('set() - lang must be a string', () => {
     try {
+      // @ts-ignore
       i18n.set();
     } catch (err) {
       err.should.have.property('message', 'lang must be a string!');
@@ -86,6 +85,7 @@ describe('i18n', () => {
 
   it('set() - data is required', () => {
     try {
+      // @ts-ignore
       i18n.set('en');
     } catch (err) {
       err.should.have.property('message', 'data is required!');
@@ -131,6 +131,7 @@ describe('i18n', () => {
 
   it('remove() - lang must be a string', () => {
     try {
+      // @ts-ignore
       i18n.remove();
     } catch (err) {
       err.should.have.property('message', 'lang must be a string!');

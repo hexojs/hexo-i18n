@@ -1,16 +1,16 @@
 import { vsprintf } from 'sprintf-js';
 
 interface Options {
-  languages?: string[];
+  languages?: string[] | string;
 }
 
 class i18n {
-  data: object;
+  data: any;
   languages: string[];
 
   constructor(options: Options = {}) {
     this.data = {};
-    this.languages = options.languages || ['default'];
+    this.languages = options.languages as any || ['default'];
 
     if (!Array.isArray(this.languages)) {
       this.languages = [this.languages];
@@ -65,10 +65,10 @@ class i18n {
     return Object.keys(this.data);
   }
 
-  __(lang?: string[]) {
+  __(lang?: string | string[]) {
     const data = this.get(lang);
 
-    return (key: string, ...args) => {
+    return (key?: string, ...args) => {
       if (!key) return '';
 
       const str = data[key] || key;
@@ -77,10 +77,10 @@ class i18n {
     };
   }
 
-  _p(lang?: string[]) {
+  _p(lang?: string | string[]) {
     const data = this.get(lang);
 
-    return (key: string, ...args) => {
+    return (key?: string, ...args) => {
       if (!key) return '';
 
       const number = args.length ? +args[0] : 0;
