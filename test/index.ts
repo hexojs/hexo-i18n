@@ -76,7 +76,7 @@ describe('i18n', () => {
 
   it('set() - lang must be a string', () => {
     try {
-      // @ts-ignore
+      // @ts-expect-error
       i18n.set();
     } catch (err) {
       err.should.have.property('message', 'lang must be a string!');
@@ -85,7 +85,7 @@ describe('i18n', () => {
 
   it('set() - data is required', () => {
     try {
-      // @ts-ignore
+      // @ts-expect-error
       i18n.set('en');
     } catch (err) {
       err.should.have.property('message', 'data is required!');
@@ -131,7 +131,7 @@ describe('i18n', () => {
 
   it('remove() - lang must be a string', () => {
     try {
-      // @ts-ignore
+      // @ts-expect-error
       i18n.remove();
     } catch (err) {
       err.should.have.property('message', 'lang must be a string!');
